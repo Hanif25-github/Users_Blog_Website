@@ -25,7 +25,7 @@ This project is a simple blog system implemented in PHP with a MySQL database.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/blog-system.git
+   git clone https://github.com/harsh-kr-2023/blog-system.git
    
 1. Import the database:
 
@@ -47,3 +47,35 @@ $database = "blog_system";
 3. Run the project:
 
 Start a PHP development server:
+
+#Database
+-- Create the 'blog' database
+CREATE DATABASE IF NOT EXISTS blog;
+
+-- Use the 'blog' database
+USE blog;
+
+-- Create the 'blog_posts' table
+CREATE TABLE IF NOT EXISTS blog_posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create the 'comments' table
+CREATE TABLE IF NOT EXISTS comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT NOT NULL,
+    user_name VARCHAR(255) NOT NULL,
+    comment_text TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (post_id) REFERENCES blog_posts(id)
+);
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
