@@ -25,7 +25,7 @@ This project is a simple blog system implemented in PHP with a MySQL database.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/harsh-kr-2023/blog-system.git
+   git clone https://github.com/Hanif25-github/Users_Blog_Website
    
 1. Import the database:
 
